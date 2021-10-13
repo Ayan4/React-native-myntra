@@ -1,13 +1,15 @@
 import React from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import { Button } from "native-base";
 import { productFilters } from "../../../../config/constants";
 import FilterList from "./FilterList";
 import { useSelector, useDispatch } from "react-redux";
-import { setCurrentFilterAction } from "../../../../slices/filterSlice";
+import {
+  setCurrentFilterAction,
+  clearFiltersAction
+} from "../../../../slices/filterSlice";
 
-const Filter = ({ setOpenFilter }) => {
+const FilterContainer = ({ setOpenFilter }) => {
   const dispatch = useDispatch();
   const currentFilter = useSelector(state => state.filters.currentFilter);
   const allFiltersList = productFilters.filters;
@@ -15,11 +17,18 @@ const Filter = ({ setOpenFilter }) => {
   return (
     <View style={tw`h-full w-full bg-white flex justify-between`}>
       <View>
-        <Text
-          style={tw`font-bold text-xs text-gray-600 border-b border-gray-200 py-3 pl-4`}
+        <View
+          style={tw`border-b border-gray-200 py-3 px-4 flex flex-row justify-between`}
         >
-          FILTERS
-        </Text>
+          <Text style={tw`font-bold text-xs text-gray-600`}>FILTERS</Text>
+          <TouchableOpacity onPress={() => dispatch(clearFiltersAction())}>
+            <Text
+              style={tw`font-bold text-xs text-yellow-600 border-b-2 border-yellow-600`}
+            >
+              CLEAR ALL
+            </Text>
+          </TouchableOpacity>
+        </View>
 
         <View style={tw`flex flex-row h-full`}>
           <ScrollView style={tw`w-2/6 border-r border-gray-300 bg-gray-100`}>
@@ -45,14 +54,14 @@ const Filter = ({ setOpenFilter }) => {
           </ScrollView>
         </View>
       </View>
-      <Button
-        style={tw`absolute bottom-0 w-full`}
+      <TouchableOpacity
+        style={tw`absolute bottom-0 w-full border-t border-gray-400 h-12 bg-white flex justify-center items-center`}
         onPress={() => setOpenFilter(false)}
       >
-        Close
-      </Button>
+        <Text style={tw`text-gray-700`}>CLOSE</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
-export default Filter;
+export default FilterContainer;

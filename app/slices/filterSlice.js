@@ -47,6 +47,7 @@ export const {
   sortByAction,
   clearSort,
   filterAction,
+  clearFiltersAction,
   setCurrentFilterAction
 } = filterSlice.actions;
 export default filterSlice.reducer;

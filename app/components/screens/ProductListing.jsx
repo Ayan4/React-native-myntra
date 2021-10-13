@@ -5,7 +5,7 @@ import { fetchAllProducts } from "../../slices/productSlice";
 import tw from "tailwind-react-native-classnames";
 import ProductCard from "../UIComponents/ProductCard";
 import BottomButtons from "../UIComponents/bottomBar/BottomButtons";
-import Filter from "../UIComponents/bottomBar/filter/Filter";
+import FilterContainer from "../UIComponents/bottomBar/filter/FilterContainer";
 
 function ProductListing() {
   const dispatch = useDispatch();
@@ -63,7 +63,7 @@ function ProductListing() {
       />
       {openFilter && (
         <View style={tw`absolute top-0 w-full h-full z-10`}>
-          <Filter setOpenFilter={setOpenFilter} />
+          <FilterContainer setOpenFilter={setOpenFilter} />
         </View>
       )}
 

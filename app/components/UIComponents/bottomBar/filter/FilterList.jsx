@@ -24,7 +24,7 @@ const FilterList = ({ filter }) => {
   const filterData = getFilterData(filterArray);
 
   return (
-    <ScrollView>
+    <ScrollView style={tw`mb-32`}>
       {Object.keys(filterData).map((filterItem, index) => (
         <FilterListItem
           key={index}

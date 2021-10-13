@@ -12,6 +12,10 @@ const FilterListItem = ({ filterCategory, filterData, filterItem }) => {
     filterState.filter[filterCategory].includes(filterItem)
   );
 
+  useEffect(() => {
+    setCheck(filterState.filter[filterCategory].includes(filterItem));
+  });
+
   const checkHandler = item => {
     dispatch(filterAction({ filterCategory, filterItem: item }));
     setCheck(!check);
