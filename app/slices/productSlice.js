@@ -16,6 +16,7 @@ export const productSlice = createSlice({
     allProducts: [],
     productStatus: "idle"
   },
+  reducers: {},
   extraReducers: {
     [fetchAllProducts.pending]: (state, action) => {
       state.productStatus = "loading";

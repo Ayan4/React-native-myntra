@@ -1,30 +1,59 @@
-import React, { useEffect } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Text, FlatList } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../../slices/productSlice";
 import tw from "tailwind-react-native-classnames";
 import ProductCard from "../UIComponents/ProductCard";
-// import Sort from "../UIComponents/Sort";
+import BottomButtons from "../UIComponents/bottomBar/BottomButtons";
+import Filter from "../UIComponents/bottomBar/filter/Filter";
 
 function ProductListing() {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products.allProducts);
+  const { currentFilter, sortBy, ...filterState } = useSelector(
+    state => state.filters
+  );
   const productStatus = useSelector(state => state.products.productStatus);
-
-  console.log(productStatus);
-  // console.log(products);
+  const [openFilter, setOpenFilter] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, []);
 
+  const getSortedData = allProducts => {
+    const sortedProducts = [...allProducts];
+    if (sortBy === "highToLow") {
+      return sortedProducts.sort((a, b) => b.price - a.price);
+    }
+    if (sortBy === "lowToHigh") {
+      return sortedProducts.sort((a, b) => a.price - b.price);
+    }
+    return allProducts;
+  };
+
+  const getFilteredData = sortedProducts => {
+    const filterArray = filterState.filter[currentFilter];
+    const filteredProducts = [...sortedProducts];
+
+    if (filterArray.length > 0) {
+      return filteredProducts.filter(item =>
+        filterArray.includes(item[currentFilter])
+      );
+    }
+    return sortedProducts;
+  };
+
+  const sortedProducts = getSortedData(products);
+  const filteredProducts = getFilteredData(sortedProducts);
+
   if (productStatus === "loading")
     return <Text style={tw`pt-10 text-xl`}>Loading...</Text>;
 
   return (
-    <View style={tw`bg-white border-1 border-red-700 flex flex-row flex-wrap`}>
+    <View style={tw`bg-white`}>
       <FlatList
-        data={products}
+        style={tw`mb-8`}
+        data={filteredProducts}
         horizontal={false}
         numColumns={2}
         keyExtractor={productItem => productItem.productId}
@@ -32,19 +61,17 @@ function ProductListing() {
           <ProductCard key={item.productId} product={item} />
         )}
       />
-      {/* {products.map(item => (
-        <ProductCard key={item.productId} product={item} />
-      ))} */}
+      {openFilter && (
+        <View style={tw`absolute top-0 w-full h-full z-10`}>
+          <Filter setOpenFilter={setOpenFilter} />
+        </View>
+      )}
+
+      <View style={tw`absolute bottom-0`}>
+        <BottomButtons setOpenFilter={setOpenFilter} />
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  productCard: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap"
-  }
-});
 
 export default ProductListing;

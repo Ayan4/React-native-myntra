@@ -30,10 +30,10 @@ const ProductCard = ({ product }) => {
         </View>
         <View style={tw`flex flex-row items-end`}>
           <Text style={tw`font-semibold text-gray-800`}>₹{product.price}</Text>
-          <Text style={tw`text-xs text-gray-400 line-through ml-2`}>
+          <Text style={tw`text-xs text-gray-400 line-through ml-1`}>
             ₹{product.mrp}
           </Text>
-          <Text style={tw`text-yellow-600 text-xs font-semibold ml-2`}>
+          <Text style={tw`text-yellow-600 text-xs font-semibold ml-1.5`}>
             (Rs. {product.discount} OFF)
           </Text>
         </View>
