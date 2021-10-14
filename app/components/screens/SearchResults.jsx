@@ -32,7 +32,7 @@ const SearchResults = () => {
         )}
         {searchResultProducts.map(item => (
           <View
-            style={tw`border border-gray-300 my-1 p-1 flex flex-row items-start rounded`}
+            style={tw`border border-gray-300 my-1 p-1.5 flex flex-row items-start rounded bg-white`}
             key={item.productId}
           >
             <Image
@@ -42,13 +42,13 @@ const SearchResults = () => {
             <View style={tw`flex`}>
               <Text
                 numberOfLines={1}
-                style={tw`w-3/4 ml-2 mb-1 text-lg text-gray-900`}
+                style={tw`w-3/4 ml-2.5 mb-1 text-lg text-gray-900`}
               >
                 {item.brand}
               </Text>
               <Text
                 numberOfLines={2}
-                style={tw`w-3/5 ml-2 text-base text-gray-500`}
+                style={tw`w-3/5 ml-2.5 text-base text-gray-500`}
               >
                 {item.product}
               </Text>

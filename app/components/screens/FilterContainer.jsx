@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { productFilters } from "../../config/productFilters";
@@ -17,7 +17,7 @@ const FilterContainer = () => {
   const allFiltersList = productFilters.filters;
 
   return (
-    <View style={tw`h-full w-full bg-white flex justify-between`}>
+    <View style={tw`h-full w-full bg-white flex justify-between mt-6`}>
       <View>
         <View
           style={tw`border-b border-gray-200 py-5 px-4 flex flex-row justify-between`}
@@ -58,7 +58,7 @@ const FilterContainer = () => {
       </View>
       <TouchableOpacity
         activeOpacity={0.9}
-        style={tw`absolute bottom-0 w-full border-t border-gray-300 h-14 bg-white flex justify-center items-center`}
+        style={tw`absolute bottom-6 w-full border-t border-gray-300 h-14 bg-white flex justify-center items-center`}
         onPress={() => navigation.navigate("ProductListing")}
       >
         <Text style={tw`text-gray-700 font-bold text-base tracking-wide`}>

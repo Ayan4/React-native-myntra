@@ -2,6 +2,10 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FlatList, LogBox } from "react-native";
 import tw from "tailwind-react-native-classnames";
+import {
+  getFilterData,
+  getTransformedSizes
+} from "../../../../config/logicFunctions";
 import FilterListItem from "./FilterListItem";
 
 const FilterList = ({ filter }) => {
@@ -14,30 +18,6 @@ const FilterList = ({ filter }) => {
     LogBox.ignoreLogs(["SerializableStateInvariantMiddleware took"]);
   }, []);
 
-  const getFilterData = filterArray => {
-    let filterData = {};
-    for (let filter of filterArray) {
-      if (!filterData[filter]) {
-        filterData[filter] = 1;
-      } else {
-        filterData[filter] += 1;
-      }
-    }
-    return filterData;
-  };
-
-  const getTransformedSizes = filterArray => {
-    let filterSizes = [];
-    for (let i = 0; i < filterArray.length; i++) {
-      const sizeArray = filterArray[i].split(",");
-
-      for (let j = 0; j < sizeArray.length; j++) {
-        filterSizes.push(sizeArray[j]);
-      }
-    }
-    return filterSizes;
-  };
-
   const transformedSizes = getTransformedSizes(filterArray);
 
   const filterData =
@@ -48,7 +28,7 @@ const FilterList = ({ filter }) => {
 
   return (
     <FlatList
-      style={tw`mb-48`}
+      style={tw`mb-52`}
       data={filterDataArray}
       horizontal={false}
       keyExtractor={index => index}
