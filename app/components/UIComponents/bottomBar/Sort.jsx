@@ -39,7 +39,7 @@ export function Sort() {
           size={20}
           color="black"
         />
-        <Text style={tw`text-gray-600 font-bold text-xs`}>SORT</Text>
+        <Text style={tw`text-gray-600 font-bold`}>SORT</Text>
       </TouchableOpacity>
 
       <Actionsheet isOpen={isOpen} onClose={onClose} size="full">

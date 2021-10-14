@@ -45,7 +45,7 @@ export const filterSlice = createSlice({
 
 export const {
   sortByAction,
-  clearSort,
+  clearSortAction,
   filterAction,
   clearFiltersAction,
   setCurrentFilterAction

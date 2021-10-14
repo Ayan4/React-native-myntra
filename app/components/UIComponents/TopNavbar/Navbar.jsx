@@ -1,0 +1,41 @@
+import React from "react";
+import { View, Image, Text } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import tw from "tailwind-react-native-classnames";
+import { useNavigation } from "@react-navigation/core";
+
+const Navbar = () => {
+  const navigation = useNavigation();
+
+  const searchHandler = () => {
+    navigation.navigate("SearchResult");
+  };
+
+  return (
+    <View style={tw`border-b border-gray-300 px-4 py-3`}>
+      <View style={tw`flex flex-row justify-between items-center`}>
+        <View style={tw`flex flex-row items-center`}>
+          <Image
+            style={tw`w-8 h-8`}
+            source={{
+              uri:
+                "data:image/png;base64,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"
+            }}
+          />
+          <Text style={tw`text-2xl font-bold text-yellow-600 ml-0.5`}>
+            yntra
+          </Text>
+        </View>
+        <AntDesign
+          style={tw`text-gray-600`}
+          onPress={searchHandler}
+          name="search1"
+          size={24}
+          color="black"
+        />
+      </View>
+    </View>
+  );
+};
+
+export default Navbar;

@@ -28,9 +28,9 @@ const FilterListItem = ({ filterCategory, filterData, filterItem }) => {
     >
       <View style={tw`flex flex-row items-center`}>
         <CheckBox value={check} onChange={() => checkHandler(filterItem)} />
-        <Text style={tw`text-gray-500 text-xs ml-2`}>{filterItem}</Text>
+        <Text style={tw`text-gray-600 ml-2`}>{filterItem}</Text>
       </View>
-      <Text style={tw`text-gray-500 text-xs`}>{filterData[filterItem]}</Text>
+      <Text style={tw`text-gray-600 mr-2`}>{filterData[filterItem]}</Text>
     </TouchableOpacity>
   );
 };
