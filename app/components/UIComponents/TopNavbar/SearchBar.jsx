@@ -13,7 +13,7 @@ const SearchBar = ({ setTerm }) => {
 
   return (
     <View
-      style={tw`flex flex-row items-center bg-white py-2.5 px-3 border-b border-gray-300 mb-3`}
+      style={tw`flex flex-row items-center bg-white py-2.5 px-3 border-b border-gray-300 mb-3 rounded`}
     >
       <TextInput
         onChangeText={text => setTerm(text)}

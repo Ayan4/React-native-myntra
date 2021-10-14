@@ -32,5 +32,4 @@ export const productSlice = createSlice({
   }
 });
 
-// export const {} = userSlice.actions;
 export default productSlice.reducer;

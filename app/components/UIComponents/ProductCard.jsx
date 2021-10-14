@@ -42,8 +42,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-// const styles = StyleSheet.create({
-//   image: { resizeMode: "contain", height: 400, backgroundColor: "black" }
-// });
-
 export default ProductCard;

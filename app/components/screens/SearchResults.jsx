@@ -17,11 +17,11 @@ const SearchResults = () => {
   });
 
   return (
-    <View style={tw`mt-12`}>
+    <View style={tw`mt-8 mx-1.5`}>
       <SearchBar setTerm={setTerm} />
-      <ScrollView style={tw`mx-2 mb-16`}>
+      <ScrollView style={tw`mb-16`}>
         {searchResultProducts.length < 1 && term === "" && (
-          <Text style={tw`text-base text-gray-500 text-center mt-5`}>
+          <Text style={tw`text-lg text-gray-500 text-center mt-5`}>
             Search results will appear here...
           </Text>
         )}

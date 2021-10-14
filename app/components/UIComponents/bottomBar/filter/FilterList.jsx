@@ -48,7 +48,7 @@ const FilterList = ({ filter }) => {
 
   return (
     <FlatList
-      style={tw`mb-56`}
+      style={tw`mb-48`}
       data={filterDataArray}
       horizontal={false}
       keyExtractor={index => index}
