@@ -16,7 +16,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <NativeBaseProvider>
-          {/* <StatusBar barStyle={"default"} /> */}
+          <StatusBar barStyle={"default"} />
           <Stack.Navigator>
             <Stack.Screen
               name="ProductListing"

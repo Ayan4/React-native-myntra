@@ -5,7 +5,7 @@ import tw from "tailwind-react-native-classnames";
 import {
   getFilterData,
   getTransformedSizes
-} from "../../../../config/logicFunctions";
+} from "../../../../utils/logicFunctions";
 import FilterListItem from "./FilterListItem";
 
 const FilterList = ({ filter }) => {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import tw from "tailwind-react-native-classnames";
-import { productFilters } from "../../config/productFilters";
+import { productFilters } from "../../utils/productFilters";
 import FilterList from "../UIComponents/bottomBar/filter/FilterList";
 import { useSelector, useDispatch } from "react-redux";
 import {

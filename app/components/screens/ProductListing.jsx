@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProducts } from "../../slices/productSlice";
 import { AntDesign } from "@expo/vector-icons";
 import tw from "tailwind-react-native-classnames";
-import { getSortedData, getFilteredData } from "../../config/logicFunctions";
+import { getSortedData, getFilteredData } from "../../utils/logicFunctions";
 import Navbar from "../UIComponents/TopNavbar/Navbar";
 import ProductCard from "../UIComponents/ProductCard";
 import BottomButtons from "../UIComponents/bottomBar/BottomButtons";
